@@ -1,15 +1,1 @@
-127.0.0.1    dsaddas.com
-127.0.0.1    asdsafas.com
-127.0.0.1    demonio.com1
-127.0.0.1    demonio.com2
-127.0.0.1    demonio.com3
-127.0.0.1    demonio.com4
-127.0.0.1    demonio.com5
-127.0.0.1    demonio.com7
-127.0.0.1    penis.com
-127.0.0.1    rola.doida.com
-127.0.0.1    mateusbosta.com
-127.0.0.1    mateusbosta.com23
-127.0.0.1    mateusbosta.com1231241
-127.0.0.1    mateusbosta.com2131251234213
-127.0.0.1    asdsadawdad.com
+
