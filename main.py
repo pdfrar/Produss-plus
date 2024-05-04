@@ -14,7 +14,8 @@ class FrontEnd: #Cria-se a classe para o FrontEnd, a parte visual do programa qu
     
     def AbrirELerJanelaParaInserirOsSites(self): #Cria-se a tarefa para ler os valores inseridos pelo usuário
         self.event, self.values = self.janelainsercaodesites.read() #A janela pode retornar dois tipos de entrada, eventos (ex: botões) ou valores (ex: input de texto)
-        print('{} {}'.format(self.event,self.values)) #Essa linha printa os valores resgatados da leitura da janela anteriormente criada.
+        print(f'{self.event} {self.values}') #Essa linha printa os valores resgatados da leitura da janela anteriormente criada.
+        sites.append(self.values['siteinserido'])
 
 class BackEnd: #Cria-se uma classe de tarefas para o BackEnd, onde ocorre o processamento dos dados e o usuário não tem acesso
     def InputNoArquivoDeTexto(self): #Cria-se a tarefa para ler o input do site e salvar em um arquivo de texto
@@ -27,7 +28,12 @@ class BackEnd: #Cria-se uma classe de tarefas para o BackEnd, onde ocorre o proc
                 for i in range(len(sites)): #Essas linhas aqui são a mesma lógica da estrutura try acima.
                     h.write('127.0.0.1    {}}\n'.format(sites[i])) #''
 
+#Aqui é onde são executadas as tarefas anteriormente criadas
+
 front_end = FrontEnd() #Cria-se uma instância da classe FrontEnd, passando-a todos os atributos e tarefas da classe.
+back_end = BackEnd()
 front_end.LayoutDaJanelaParaInserirOsSites() #Chama a função da classe FrontEnd, executando-a.
+
 while True:
     front_end.AbrirELerJanelaParaInserirOsSites() #Enquanto o usuário não parar o programa de alguma forma, o programa lerá os sites inseridos infinitamente.
+    back_end.InputNoArquivoDeTexto()
