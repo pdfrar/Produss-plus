@@ -88,6 +88,7 @@ class BackEnd: #Cria-se uma classe de tarefas para o BackEnd, onde ocorre o proc
             if f'{sites[-1]}\n' not in spb and sites[-1] not in spb:
                 with open('sitesparabloquear.txt', 'a+') as h: #Aqui é o comando para abrir o arquivo em modo de escrita sobre um arquivo já existente, representado pelo 'w'
                     h.write(f'{sites[-1]}\n') #Aqui, escreve-se cada linha com o site já no formato do arquivo hosts, com o ip do PC antes do endereço do site.
+            sg.popup("Site adicionado à lista de sites para bloquear!")
         elif retorninho == 'block':
             BackEnd.limparHost()
             with open('C:\Windows\System32\drivers\etc\hosts', 'a+') as h:
@@ -96,9 +97,11 @@ class BackEnd: #Cria-se uma classe de tarefas para o BackEnd, onde ocorre o proc
                         h.write('\n127.0.0.1    {}'.format(sites[i]))
                     else: 
                         h.write('\n127.0.0.1    {}'.format(sites[i]))
+            sg.popup("Sites bloqueados com sucesso!")
         elif retorninho == 'des':
             BackEnd.limparHost()
             open ('sitesparabloquear.txt', 'w').close()
+            sg.popup('Bloqueio desativado com sucesso!')
         elif retorninho == 'removeralguns':
             listadesitesparaapagar = []
             front_end.LayoutDaJanelaParaApagarAlgunsSites()  # Captura a janela retornada
@@ -123,6 +126,7 @@ class BackEnd: #Cria-se uma classe de tarefas para o BackEnd, onde ocorre o proc
                     else:
                         h.write('\n127.0.0.1    {}'.format(sites[i]))
             front_end.janelaexclusaodesites.close()
+            sg.popup('Sites removidos com sucesso!')
 
 #Aqui é onde são executadas as tarefas anteriormente criadas
 front_end = FrontEnd() #Cria-se uma instância da classe FrontEnd, passando-a todos os atributos e tarefas da classe.
